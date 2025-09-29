@@ -4,6 +4,7 @@ const searchInput = document.getElementById("search");   // search bar
 const fishForm = document.getElementById("fish-form");   // add fish form
 
 // Function to create a card for one fish
+// this function is called in the the getfish ... so to run we pas a value ..... and apparently we just use fish for the same but we passed the value in the getfish function this other fish is just acting as a lone arguement representing the previous value it was called by
 function createFishCard(fish) {
   const card = document.createElement("div");   // create a div
   card.className = "fish-card";                 // add class for styling
@@ -47,7 +48,7 @@ function getFish() {
       fishList.innerHTML = "";               // clear old cards ... this is a good habit to ensure we are placing our card in empty divs
       fishArray.forEach(fish => {            // loop through fish
         fishList.appendChild(createFishCard(fish));  // make a card and add it so we do this to ensure that the function we are creating has to offet back a value 
-      }); //so i pass each fish .... meaning that in the whole array every object representing a fish will be iterated over and will be given to the the fish list and run the value of the cards generated from running the functions will be appended to the list of the div 
+      }); //so i pass each fish .... meaning that in the whole array every object representing a fish will be iterated over and will be given to the the fish list and run the value of the cards generated from running the functions will be appended to the list of the div ....
     });
 }
 
