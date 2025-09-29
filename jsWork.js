@@ -39,9 +39,9 @@ function createFishCard(fish) {
 
 // Fetch all fish and display them
 //this is the first function to start ... so it runs the other functions
-
+// and it starts by fetching the data to display the fish
 function getFish() {
-  fetch("http://localhost:3000/fish")        // request data from local server
+  fetch("http://localhost:3000/fish")        // request data from local server .... so when we back slash into fish to giv us the whole array ... and 
     .then(res => res.json())                 // convert response to JSON
     .then(fishArray => {
       fishList.innerHTML = "";               // clear old cards
