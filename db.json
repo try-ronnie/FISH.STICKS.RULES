@@ -12,8 +12,8 @@
       "name": "Tilapia/kawaida",
       "image": "image.1/tilapia.jpeg",
       "price": 800,
-      "likes": 1   
-     },
+      "likes": 2
+    },
     {
       "id": 3,
       "name": "Nile Perch",

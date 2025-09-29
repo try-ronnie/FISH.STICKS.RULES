@@ -38,6 +38,8 @@ function createFishCard(fish) {
 }
 
 // Fetch all fish and display them
+//this is the first function to start ... so it runs the other functions
+
 function getFish() {
   fetch("http://localhost:3000/fish")        // request data from local server
     .then(res => res.json())                 // convert response to JSON
@@ -87,7 +89,7 @@ fishForm.addEventListener("submit", e => {
     .then(res => res.json())                          // parse response
     .then(() => {
       getFish();       // reload fish list so new one appears
-      fishForm.reset();// clear input fields
+       fishForm.reset();// clear input fields
     });
 });
 
