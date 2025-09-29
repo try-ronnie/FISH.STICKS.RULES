@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fish Sticks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🐟 Fish Sticks</h1>
+  <p>Welcome! Browse and buy fresh local fish online.</p>
+
+  <!-- Search input -->
+  <input type="text" id="search" placeholder="Search fish...">
+
+  <!-- Container where fish cards will appear -->
+  <div id="fish-list"></div>
+
+  <!-- Form to add new fish -->
+  <h2>Add a New Fish</h2>
+  <form id="fish-form">
+    <input type="text" id="name" placeholder="Fish name" required>
+    <input type="text" id="image" placeholder="Image URL" required>
+    <input type="number" id="price" placeholder="Price (KES)" required>
+    <button type="submit">Add Fish</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

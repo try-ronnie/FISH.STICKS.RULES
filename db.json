@@ -1,0 +1,39 @@
+{
+  "fish": [
+    {
+      "id": 1,
+      "name": "Omena",
+      "image": "https://i.ibb.co/4M6qwx9/omena.jpg",
+      "price": 300,
+      "likes": 5
+    },
+    {
+      "id": 2,
+      "name": "Tilapia/kawaida",
+      "image": "https://i.ibb.co/Jz8tbxV/tilapia.jpg",
+      "price": 800,
+      "likes": 10
+    },
+    {
+      "id": 3,
+      "name": "Nile Perch",
+      "image": "https://i.ibb.co/vq9Xc6f/nileperch.jpg",
+      "price": 1200,
+      "likes": 8
+    },
+    {
+      "id": 4,
+      "name": "Catfish",
+      "image": "https://i.ibb.co/6ZC1Wxt/catfish.jpg",
+      "price": 600,
+      "likes": 7
+    },
+    {
+      "id": 5,
+      "name": "Mackerel",
+      "image": "https://i.ibb.co/x8Z6TFz/mackerel.jpg",
+      "price": 1000,
+      "likes": 4
+    }
+  ]
+} 

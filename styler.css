@@ -1,0 +1,25 @@
+/*css ni ngumu kiasi*/
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+#fish-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.fish-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+.fish-card img {
+  width: 100%;
+  height: auto;
+}
