@@ -28,12 +28,16 @@ function createFishCard(fish) {
 
   likeBtn.addEventListener("click", () => {
     // we then need to ensure that the server updates the right id of the fish so we concatenate the url to directly get to the object that we specifically need 
+    //we use patch to ensure that we change only one part of the object and that is the like count ....
+    // give headers to ensure that the server knows what type of the data is being added ....
+    // i then gave the body ro change the likes and thats just by adding 1 to the number of likes
     fetch("http://localhost:3000/fish/" + fish.id, {
-      method: "PATCH",                                   // update existing record
-      headers: { "Content-Type": "application/json" },   // tell server we send JSON
-      body: JSON.stringify({ likes: fish.likes + 1 })    // increase likes by 1
-    })
-      .then(res => res.json())                           // convert response to JSON
+      method: "PATCH",                                   
+      headers: { "Content-Type": "application/json" },  
+      body: JSON.stringify({ likes: fish.likes + 1 })    
+    })// note that every time we pass a new update to the server it gives a response in form of a package containing whats changed .... but comes as a string since https responses always come in texts so that the server can understand ...
+    // then we .json it to now change the response string to
+      .then(res => res.json())        
       .then(updatedFish => {
         fish.likes = updatedFish.likes;                  // update fish object in memory
         card.querySelector("span").textContent = updatedFish.likes; // update likes on page
