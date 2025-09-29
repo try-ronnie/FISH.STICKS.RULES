@@ -17,7 +17,7 @@
     {
       "id": 3,
       "name": "Nile Perch",
-      "image": "image.1/.jpeg",
+      "image": "image.1/nile perch.jpeg",
       "price": 1200,
       "likes": 8
     },
@@ -31,7 +31,7 @@
     {
       "id": 5,
       "name": "Mackerel",
-      "image": "1image.1/mackerel.jpeg",
+      "image": "image.1/mackerel.jpeg",
       "price": 1000,
       "likes": 4
     },
