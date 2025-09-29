@@ -5,21 +5,21 @@
       "name": "Omena",
       "image": "image.1/omena.jpeg",
       "price": 300,
-      "likes": 5
+      "likes": 6
     },
     {
       "id": 2,
       "name": "Tilapia/kawaida",
       "image": "image.1/tilapia.jpeg",
       "price": 800,
-      "likes": 11
-    },
+      "likes": 1   
+     },
     {
       "id": 3,
       "name": "Nile Perch",
       "image": "image.1/nile perch.jpeg",
       "price": 1200,
-      "likes": 8
+      "likes": 2
     },
     {
       "id": 4,
