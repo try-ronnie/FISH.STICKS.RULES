@@ -41,12 +41,12 @@ function createFishCard(fish) {
 //this is the first function to start ... so it runs the other functions
 // and it starts by fetching the data to display the fish
 function getFish() {
-  fetch("http://localhost:3000/fish")        // request data from local server .... so when we back slash into fish to giv us the whole array ... and 
+  fetch("http://localhost:3000/fish")        // request data from local server .... so when we back slash into fish to give us the whole array ...
     .then(res => res.json())                 // convert response to JSON
     .then(fishArray => {
-      fishList.innerHTML = "";               // clear old cards
+      fishList.innerHTML = "";               // clear old cards ... this is a good habit to ensure we are placing our card in empty divs
       fishArray.forEach(fish => {            // loop through fish
-        fishList.appendChild(createFishCard(fish));  // make a card and add it
+        fishList.appendChild(createFishCard(fish));  // make a card and add it so we do this to ensure that the function we are creating has to offet back a value 
       });
     });
 }
