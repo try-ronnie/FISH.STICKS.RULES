@@ -47,7 +47,7 @@ function getFish() {
       fishList.innerHTML = "";               // clear old cards ... this is a good habit to ensure we are placing our card in empty divs
       fishArray.forEach(fish => {            // loop through fish
         fishList.appendChild(createFishCard(fish));  // make a card and add it so we do this to ensure that the function we are creating has to offet back a value 
-      }); //so i pass each fish .... meaning that in the whole array every object representing a fish will be iterated over and will be given to the the fish list and run the value of the cards gene
+      }); //so i pass each fish .... meaning that in the whole array every object representing a fish will be iterated over and will be given to the the fish list and run the value of the cards generated from running the functions will be appended to the list of the div 
     });
 }
 
