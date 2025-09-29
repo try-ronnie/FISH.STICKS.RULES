@@ -12,6 +12,7 @@ function createFishCard(fish) {
   card.className = "fish-card";                 // add class for styling .... this is to allow same styling for the cards for a uniform ui
 
   //... note that the function is getting the values as a single object since we iterared over the values in the get fish function .... so we use the bracket notation
+
   card.innerHTML = `
     <h3>${fish.name}</h3>
     <img src="${fish.image}" alt="${fish.name}">
@@ -20,7 +21,7 @@ function createFishCard(fish) {
     <button>Like</button>
   `;
 
-  // Grab the like button inside the card
+//so we get the button we create as soon as the value is passed .... and allow for its manipulation to allow for updating the likes first
   const likeBtn = card.querySelector("button");
 
   // When clicked, update likes in the db.json
