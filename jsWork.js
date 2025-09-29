@@ -11,7 +11,7 @@ function createFishCard(fish) {
   const card = document.createElement("div");   // creating the div
   card.className = "fish-card";                 // add class for styling .... this is to allow same styling for the cards for a uniform ui
 
-  // Fill the card with fish info
+  //... note that the function is getting the values as a single object since we iterared over the values in the get fish function .... so we use the bracket notation
   card.innerHTML = `
     <h3>${fish.name}</h3>
     <img src="${fish.image}" alt="${fish.name}">
