@@ -1,9 +1,10 @@
-// Grab elements from the page
+// Grab elements from the page the page 
 const fishList = document.getElementById("fish-list");
 const searchInput = document.getElementById("search");
 const fishForm = document.getElementById("fish-form");
 
-// Get and show all fish
+// Get and show all fish and for each create a card for the fish
+// so we have to loop through the array
 function getFish() {
   fetch("http://localhost:3000/fish")
     .then(res => res.json())
@@ -19,7 +20,7 @@ function getFish() {
           <img src="${fish.image}" alt="${fish.name}">
           <p>Price: KES ${fish.price}</p>
           <p>Likes: <span>${fish.likes}</span></p>
-          <button>👍 Like</button>
+          <button>Like</button>
         `;
 
         // Like button
