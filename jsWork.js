@@ -5,9 +5,11 @@ const fishForm = document.getElementById("fish-form");   // add fish form
 
 // Function to create a card for one fish
 // this function is called in the the getfish ... so to run we pas a value ..... and apparently we just use fish for the same but we passed the value in the getfish function this other fish is just acting as a lone arguement representing the previous value it was called by
+
 function createFishCard(fish) {
-  const card = document.createElement("div");   // create a div
-  card.className = "fish-card";                 // add class for styling
+  // we start of by creating a div that will hold the cards ..... and then make sure we will append it too
+  const card = document.createElement("div");   // creating the div
+  card.className = "fish-card";                 // add class for styling .... this is to allow same styling for the cards for a uniform ui
 
   // Fill the card with fish info
   card.innerHTML = `
