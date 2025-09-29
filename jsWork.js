@@ -24,8 +24,10 @@ function createFishCard(fish) {
 //so we get the button we create as soon as the value is passed .... and allow for its manipulation to allow for updating the likes first
   const likeBtn = card.querySelector("button");
 
-  // When clicked, update likes in the db.json
+  // When clicked, update likes in the db.json ...
+
   likeBtn.addEventListener("click", () => {
+    // we then need to ensure that the server updates the right id of the fish so we concatenate the url to directly get to the object that we specifically need 
     fetch("http://localhost:3000/fish/" + fish.id, {
       method: "PATCH",                                   // update existing record
       headers: { "Content-Type": "application/json" },   // tell server we send JSON
