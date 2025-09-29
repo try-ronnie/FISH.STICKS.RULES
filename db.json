@@ -3,37 +3,44 @@
     {
       "id": 1,
       "name": "Omena",
-      "image": "https://i.ibb.co/4M6qwx9/omena.jpg",
+      "image": "https://images.pexels.com/photos/65370/pexels-photo-65370.jpeg",
       "price": 300,
       "likes": 5
     },
     {
       "id": 2,
       "name": "Tilapia/kawaida",
-      "image": "https://i.ibb.co/Jz8tbxV/tilapia.jpg",
+      "image": "https://images.pexels.com/photos/533922/pexels-photo-533922.jpeg",
       "price": 800,
-      "likes": 10
+      "likes": 11
     },
     {
       "id": 3,
       "name": "Nile Perch",
-      "image": "https://i.ibb.co/vq9Xc6f/nileperch.jpg",
+      "image": "https://images.pexels.com/photos/115850/fish-golden-fish-aquarium-115850.jpeg",
       "price": 1200,
       "likes": 8
     },
     {
       "id": 4,
       "name": "Catfish",
-      "image": "https://i.ibb.co/6ZC1Wxt/catfish.jpg",
+      "image": "https://images.pexels.com/photos/46239/catfish-fish-underwater-46239.jpeg",
       "price": 600,
       "likes": 7
     },
     {
       "id": 5,
       "name": "Mackerel",
-      "image": "https://i.ibb.co/x8Z6TFz/mackerel.jpg",
+      "image": "https://images.pexels.com/photos/103829/fish-animals-seafood-nature-103829.jpeg",
       "price": 1000,
       "likes": 4
+    },
+    {
+      "id": 6,
+      "name": "Mousefish",
+      "image": "https://images.pexels.com/photos/209893/pexels-photo-209893.jpeg",
+      "price": 2212,
+      "likes": 1
     }
   ]
 }
