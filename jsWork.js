@@ -1,94 +1,95 @@
-// Grab elements from the page the page 
-const fishList = document.getElementById("fish-list");
-const searchInput = document.getElementById("search");
-const fishForm = document.getElementById("fish-form");
+// Get references to elements in the HTML
+const fishList = document.getElementById("fish-list");   // where fish cards will be shown
+const searchInput = document.getElementById("search");   // search bar
+const fishForm = document.getElementById("fish-form");   // add fish form
 
-// Get and show all fish and for each create a card for the fish
-// so we have to loop through the array
+// Function to create a card for one fish
+function createFishCard(fish) {
+  const card = document.createElement("div");   // create a div
+  card.className = "fish-card";                 // add class for styling
+
+  // Fill the card with fish info
+  card.innerHTML = `
+    <h3>${fish.name}</h3>
+    <img src="${fish.image}" alt="${fish.name}">
+    <p>Price: KES ${fish.price}</p>
+    <p>Likes: <span>${fish.likes}</span></p>
+    <button>Like</button>
+  `;
+
+  // Grab the like button inside the card
+  const likeBtn = card.querySelector("button");
+
+  // When clicked, update likes in the db.json
+  likeBtn.addEventListener("click", () => {
+    fetch("http://localhost:3000/fish/" + fish.id, {
+      method: "PATCH",                                   // update existing record
+      headers: { "Content-Type": "application/json" },   // tell server we send JSON
+      body: JSON.stringify({ likes: fish.likes + 1 })    // increase likes by 1
+    })
+      .then(res => res.json())                           // convert response to JSON
+      .then(updatedFish => {
+        fish.likes = updatedFish.likes;                  // update fish object in memory
+        card.querySelector("span").textContent = updatedFish.likes; // update likes on page
+      });
+  });
+
+  return card;   // return ready card
+}
+
+// Fetch all fish and display them
 function getFish() {
-  fetch("http://localhost:3000/fish")
-    .then(res => res.json())
+  fetch("http://localhost:3000/fish")        // request data from local server
+    .then(res => res.json())                 // convert response to JSON
     .then(fishArray => {
-      fishList.innerHTML = ""; // clear before showing new
-      fishArray.forEach(fish => {
-        // make a card for each fish
-        const card = document.createElement("div");
-        card.className = "fish-card";
-
-        card.innerHTML = `
-          <h3>${fish.name}</h3>
-          <img src="${fish.image}" alt="${fish.name}">
-          <p>Price: KES ${fish.price}</p>
-          <p>Likes: <span>${fish.likes}</span></p>
-          <button>Like</button>
-        `;
-
-        // Like button
-        const likeBtn = card.querySelector("button");
-        likeBtn.addEventListener("click", () => {
-          fetch("http://localhost:3000/fish/" + fish.id, {
-            method: "PATCH",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({ likes: fish.likes + 1 })
-          })
-            .then(res => res.json())
-            .then(updatedFish => {
-              fish.likes = updatedFish.likes; // update the object
-              card.querySelector("span").textContent = updatedFish.likes; // update DOM
-            });
-        });
-
-        fishList.appendChild(card);
+      fishList.innerHTML = "";               // clear old cards
+      fishArray.forEach(fish => {            // loop through fish
+        fishList.appendChild(createFishCard(fish));  // make a card and add it
       });
     });
 }
 
-// Search fish
+// Search functionality
 searchInput.addEventListener("input", e => {
-  fetch("http://localhost:3000/fish")
+  fetch("http://localhost:3000/fish")       // get fish again
     .then(res => res.json())
     .then(fishArray => {
-      const searchValue = e.target.value.toLowerCase();
+      const searchValue = e.target.value.toLowerCase();  // what user typed
+      // filter fish whose names match the search
       const filtered = fishArray.filter(fish =>
         fish.name.toLowerCase().includes(searchValue)
       );
-      fishList.innerHTML = "";
-      filtered.forEach(fish => {
-        const card = document.createElement("div");
-        card.className = "fish-card";
-        card.innerHTML = `
-          <h3>${fish.name}</h3>
-          <img src="${fish.image}" alt="${fish.name}">
-          <p>Price: KES ${fish.price}</p>
-          <p>Likes: ${fish.likes}</p>
-        `;
-        fishList.appendChild(card);
+      fishList.innerHTML = "";                          // clear list
+      filtered.forEach(fish => {                        // loop filtered fish
+        fishList.appendChild(createFishCard(fish));     // show only matching fish
       });
     });
 });
 
-// Add new fish
+// Form submit to add new fish
 fishForm.addEventListener("submit", e => {
-  e.preventDefault();
+  e.preventDefault();   // stop form from refreshing the page
 
+  // Build new fish object from inputs
   const newFish = {
-    name: document.getElementById("name").value,
-    image: document.getElementById("image").value,
-    price: parseInt(document.getElementById("price").value),
-    likes: 0
+    name: document.getElementById("name").value,       // fish name
+    image: document.getElementById("image").value,     // image URL
+    price: parseInt(document.getElementById("price").value), // price number
+    likes: 0                                           // default likes
   };
 
+  // Send new fish to db.json
   fetch("http://localhost:3000/fish", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(newFish)
+    method: "POST",                                   // create new record
+    headers: { "Content-Type": "application/json" },  // sending JSON
+    body: JSON.stringify(newFish)                     // convert object to JSON
   })
-    .then(res => res.json())
+    .then(res => res.json())                          // parse response
     .then(() => {
-      getFish(); // refresh list
-      fishForm.reset(); // clear form
+      getFish();       // reload fish list so new one appears
+      fishForm.reset();// clear input fields
     });
 });
 
-// Start app
+// Start the app by showing all fish
 getFish();
