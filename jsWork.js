@@ -36,15 +36,16 @@ function createFishCard(fish) {
       headers: { "Content-Type": "application/json" },  
       body: JSON.stringify({ likes: fish.likes + 1 })    
     })// note that every time we pass a new update to the server it gives a response in form of a package containing whats changed .... but comes as a string since https responses always come in texts so that the server can understand ...
-    // then we .json it to now change the response string to
+    // then we .json it to now change the response string to a javascript object we can use 
+    // we use span as an inline element to group what we want to target specifically ... in this case we want to target the fish likes paragraph to update it and we do so with the 
       .then(res => res.json())        
-      .then(updatedFish => {
-        fish.likes = updatedFish.likes;                  // update fish object in memory
-        card.querySelector("span").textContent = updatedFish.likes; // update likes on page
+      .then(updatedFish => { //and so we have to replace the fish likes part with the updated value from the patch request
+        fish.likes = updatedFish.likes;                  // update fish object in memory with the server
+        card.querySelector("span").textContent = updatedFish.likes; // update likes on page using span which is an inline element worker 
       });
   });
 
-  return card;   // return ready card
+  return card;   // return ready card since we already appended the value of the function on the get fish so we need to retrun a value when the function is invoked ....
 }
 
 // Fetch all fish and display them
@@ -61,7 +62,10 @@ function getFish() {
     });
 }
 
-// Search functionality
+// Search functionality ... this is for the search button 
+// note that e  takes the input in the search bar
+//we get all the fish available for use to search through what is there already 
+//we then target e ... which is the input the user has given .. 
 searchInput.addEventListener("input", e => {
   fetch("http://localhost:3000/fish")       // get fish again
     .then(res => res.json())
