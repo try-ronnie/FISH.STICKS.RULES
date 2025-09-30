@@ -65,7 +65,8 @@ function getFish() {
 // Search functionality ... this is for the search button 
 // note that e  takes the input in the search bar
 //we get all the fish available for use to search through what is there already 
-//we then target e ... which is the input the user has given .. 
+//we then target e ... which is the input the user has given .. and access its value by using .value
+// and to enser that the what the use type is case insensitive we force it to be in lowercase
 searchInput.addEventListener("input", e => {
   fetch("http://localhost:3000/fish")       // get fish again
     .then(res => res.json())
@@ -74,8 +75,9 @@ searchInput.addEventListener("input", e => {
       // filter fish whose names match the search
       const filtered = fishArray.filter(fish =>
         fish.name.toLowerCase().includes(searchValue)
-      );
-      fishList.innerHTML = "";                          // clear list
+      ) // so we create a filter that filters each fish accoding to what the user keyed in 
+      //we also run create fish card to create the fish cards that pass the filter 
+      fishList.innerHTML = "";                          // clear list to avoid overlapping
       filtered.forEach(fish => {                        // loop filtered fish
         fishList.appendChild(createFishCard(fish));     // show only matching fish
       });
